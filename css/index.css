@@ -1,37 +1,22 @@
-:root { 
-  --white: #eff0f3; 
-  --black: #393939; 
-  --primary: #ff8906; 
-  --grey: #535353; 
-  --bg: #1f1f1f; 
-  --gradient: linear-gradient(0deg, #536976 0%, #292e49 100%); 
-  --headline1: 800 1.5rem/normal 'Nunito'; 
-  --headline2: 700 1.125rem/normal 'Nunito'; 
-  --subtitle1: 600 1.125rem/normal 'Nunito'; 
-  --subtitle2: 600 0.75rem/normal 'Nunito'; 
-  --body1-regular: 400 1rem/1.5rem 'Nunito'; 
-  --body1-bold: 700 1rem/1.5rem 'Nunito'; 
-  --body2-regular: 400 0.75rem/normal 'Nunito'; 
-  --body2-bold: 700 0.75rem/normal 'Nunito'; 
-  --button: 600 0.875rem/1rem 'Nunito'; 
-  --caption: 400 0.6875rem/normal 'Nunito'; 
+@import './global.css';
+@import './current-weather.css';
+@import './weekly-weather.css';
+@import './tabs.css';
+@import './day-weather.css';
+@import './loading.css';
+
+.app {
+  block-size: 100vh;
+  background-image: url('../images/morning-clean.jpg');
+  background-size: cover;
+  background-position: right bottom;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
 }
 
-body {
-  font: var(--body1-regular);
-}
-
-h1{
-  color: var(--primary);
-  font: var(--headline1);
-}
-
-h2{
-  color: var(--black);
-  font: var(--headline2);
-}
-
-p{
-  color: var(--grey);
-  font: var(--body1-bold);
+.app[hidden] {
+  display: none;
 }

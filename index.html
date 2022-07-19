@@ -1,21 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/index.css">
+  <meta name="description" content="La mejor aplicación del clima">
   <title>Weather App</title>
 </head>
+
 <body>
-  <h1>Weather App</h1>
-  <p>Mantente actualizado y preparado sin importar el clima. Planifique salidas al aire libre con confianza utilizando una variedad de características meteorológicas que lo mantienen actualizado con hasta una semana de anticipación</p>
-  <h2>No te rindas</h2>
-  <h3><a href="https://leonidasesteban.com/" target="_blank">leonidasesteban.com</a></h3>
-  <h4><a href="https://leonidasesteban.com/proyectos" target="_blank">leonidasesteban.com/proyectos</a></h4>
-  <h5><a href="https://leonidasesteban.com/proyectos/todos" target="_blank">leonidasesteban.com/proyectos/todos</a></h5>
+  <div class="loading" id="loading"></div>
+  <div class="app" id="app" hidden>
+    <div class="currentWeather">
+      <p id="current-weather-temp" class="currentWeather-temp"></p>
+      <div>
+        <p id="current-weather-date" class="currentWeather-date"></p>
+        <p id="current-weather-city" class="currentWeather-city"></p>
+      </div>
+    </div>
+    <div class="weeklyWeather">
+      <div class="weeklyWeather-marker" data-marker="true"></div>
+      <div class="tabs" id="tabs">
+        <div class="tabList" role="tablist">
+          <div class="tab" role="tab" aria-selected="true" id="tab-0">
+            Lunes
+          </div>
+          <div class="tab" role="tab" id="tab-1">
+            Martes
+          </div>
+          <div class="tab" role="tab" id="tab-2">
+            Miercoles
+          </div>
+          <div class="tab" role="tab" id="tab-3">
+            Viernes
+          </div>
+          <div class="tab" role="tab" id="tab-4">
+            Jueves
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/index.js" type="module"></script>
 </body>
+
 </html>
