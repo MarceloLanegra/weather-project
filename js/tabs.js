@@ -42,6 +42,6 @@ function handleSelectTabClick(event){
   const $tabPanel = document.querySelector(`[aria-labelledby=${id}]`)
   const $tabPanelSelected = document.querySelector(`.tabPanel:not([hidden])`)
 
-  $tabPanel .hidden = false
+  $tabPanel.hidden = false
   $tabPanelSelected.hidden = true
 }

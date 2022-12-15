@@ -1,4 +1,3 @@
-// import weather from '../data/current-weather.js'
 import { formatDate, formatTemp } from './utils/format-data.js'
 import { weatherConditionsCodes } from './constants.js'
 import { getLatLon } from './geolocation.js'

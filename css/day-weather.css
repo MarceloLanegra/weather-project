@@ -26,6 +26,10 @@
   margin: 0;
 }
 
+.dayWeather-item[aria-selected="true"] {
+  box-shadow: inset 0 0 0 2px var(--primary);
+}
+
 .dayWeather-time {
   font: var(--body2-regular);
 }
@@ -39,21 +43,27 @@
   font: var(--body1-bold);
 }
 
-.dayWeather-item.is-selected {
-  box-shadow: inset 0 0 0 2px var(--primary);
-}
-
 .dayWeather-summary {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
   gap: 1rem;
+  margin-block-end: 1rem;
 }
 
 .dayWeather-summary > * {
+  display: flex;
+  gap: .5rem;
 }
 
-/* .dayWeather-item[aria-selected="true"] {
-  color: var(--primary);
-  box-shadow: inset 0 0 0 2px var(--primary);
-} */
+.dayWeather-summary p{
+  margin: 0;
+}
+
+.dayWeather-summary span{
+  font: var(--body1-bold);
+}
+
+.dayWeather-summary[hidden]{
+  display: none;
+}

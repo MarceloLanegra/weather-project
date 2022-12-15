@@ -1,15 +1,19 @@
 import { createDOM } from './utils/dom.js'
 import {formatDate, formatTemp} from './utils/format-data.js'
 
-function periodTimeTemplate({temp,date,icon,description}){
-  return ` <li class="dayWeather-item">
+function periodTimeTemplate(index,{temp,date,icon,description}){
+  let value = false
+  if (index === 0){
+    value = true
+  }
+  return ` <li class="dayWeather-item" aria-selected="${value}" id="item-${index}">
       <span class="dayWeather-time">${date}</span>
       <img class="dayWeather-icon" height="48" width="48" src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="${description}" rain="">
       <span class="dayWeather-temp">${temp}</span>
-    </li>`
+    </li>`;
 }
 
-export function createPeriodTime(weather){
+export function createPeriodTime(index, weather){
 
   const dateOptions = {
     hour: 'numeric',
@@ -24,5 +28,5 @@ export function createPeriodTime(weather){
     description: weather.weather[0].description
   }
 
-  return createDOM(periodTimeTemplate(config))
+  return createDOM(periodTimeTemplate(index, config))
 }

@@ -39,25 +39,4 @@ export function createInfoWeather(weather,id) {
     $info.hidden = true
   }
   return $info
-
-  // return createDOM(infoWeatherTemplate(config))
 }
-
-// export function configHourWeather(weekList) {
-
-//   const $container = document.querySelector('.tabs')
-//   // const $info = createInfoWeather()
-
-//   weekList.forEach((day, index) => {
-//     const $panel = createTabPanel(index)
-//     $container.append($panel)
-
-//     day.forEach((weather, indexWeather) => {
-//       $panel.querySelector('.dayWeather-list').append(createPeriodTime(weather))
-//       // $container.append(createInfoWeather(weather,indexWeather))
-//     })
-//     // $container.append(createInfoWeather(day, index))
-//   }
-//   )
-//   // $container.append($info)
-// }

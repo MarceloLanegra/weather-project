@@ -3,6 +3,7 @@ import { getLatLon } from './geolocation.js'
 import { formatWeekList } from './utils/format-data.js'
 import { createDOM } from './utils/dom.js'
 import {createPeriodTime} from './period-time.js'
+import { createTabInfo } from './tabs-info.js'
 import draggable from './draggable.js'
 
 function tabPanelTemplate(id) {
@@ -26,17 +27,36 @@ function createTabPanel(id){
 }
 
 function configWeeklyWeather(weekList) {
-
   const $container = document.querySelector('.tabs')
-
   weekList.forEach((day, index) => {
     const $panel = createTabPanel(index)
     $container.append($panel)
     day.forEach((weather,indexWeather)=>{
-      $panel.querySelector('.dayWeather-list').append(createPeriodTime(weather))
+      $panel.querySelector('.dayWeather-list').append(createPeriodTime(indexWeather,weather))
+      const $tabInfo = createTabInfo(indexWeather,weather);
+      $panel.querySelector('.dayWeather').append($tabInfo);
     })
-  }
-  )
+  }) 
+   
+  const $dayWeatherItem = document.querySelectorAll(".dayWeather-item");
+  $dayWeatherItem.forEach((item, index) => {    
+    item.addEventListener("click", handleSelectTabInfoClick);
+  });
+}
+
+function handleSelectTabInfoClick(event) {  
+  const $dayWeatherItemSelected = event.currentTarget;
+  const $dayWeatherItemActive = document.querySelector('.dayWeather-item[aria-selected="true"]');
+  $dayWeatherItemActive.removeAttribute("aria-selected");
+  $dayWeatherItemSelected.setAttribute("aria-selected", true);
+
+  const id = $dayWeatherItemSelected.id;
+  
+  const $weatherSummary = document.querySelector(`[aria-labelledby=${id}]`);
+  const $weatherSummarySelected = document.querySelector(`.dayWeather-summary:not([hidden])`);
+
+  $weatherSummary.hidden = false;
+  $weatherSummarySelected.hidden = true;
 }
 
 export default async function weeklyWeather() {
